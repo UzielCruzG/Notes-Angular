@@ -1,0 +1,39 @@
+<div class="button-container">
+  <button mat-raised-button class="add-button" (click)="popup = true">
+    Agregar lista
+  </button>
+</div>
+
+<div class="overlay" *ngIf="popup">
+  <mat-card class="card">
+    <div
+      class="title-container">
+      <h1 class="font-weight-bold">Nueva lista</h1>
+    </div>
+
+    <mat-dialog-content>
+      <div class="content">
+        <input matInput type="text" placeholder="Nombre"/>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions class="buttons">
+      <button
+        mat-raised-button
+        type="button"
+        class="btn btn-light"
+        (click)="popup = false"
+      >
+        Cancelar
+      </button>
+      <button
+        mat-raised-button
+        style="margin-left: 5%"
+        type="button"
+        class="btn btn-dark"
+      >
+        Guardar
+      </button>
+    </mat-dialog-actions>
+  </mat-card>
+</div>

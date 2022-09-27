@@ -1,0 +1,21 @@
+<mat-accordion multi="true" class="list-component" *ngFor="let hero of HEROES">
+  <mat-expansion-panel class="panel">
+    <mat-expansion-panel-header> Title </mat-expansion-panel-header>
+    <div class="row" *ngFor="let hero of HEROES">
+      <div class="row-content">
+        <p>Content</p>
+      </div>
+      <div class="buttons-container">
+        <button mat-raised-button>
+          <mat-icon>calendar_today</mat-icon>
+        </button>
+        <button mat-raised-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+    <mat-action-row>
+      <button mat-raised-button color="primary">Agregar</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

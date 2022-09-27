@@ -1,0 +1,19 @@
+:host{
+  display: block;
+  margin: 1rem;
+}
+
+.list-component{
+  margin: 2rem;
+}
+
+.row-content, .buttons-container{
+  display: inline-block;
+}
+
+.row-content p {
+  margin-top: 10px;
+}
+.buttons-container{
+  float: right;
+}
