@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { MatDialogModule } from "@angular/material/dialog";
+import { SidenavComponent } from "src/app/sidenav/sidenav.component";
 
 @Component({
   selector: 'popup-card',
@@ -12,5 +13,6 @@ import { MatDialogModule } from "@angular/material/dialog";
 export class PopupCardComponent{
 
   popup = false
+
 
 }

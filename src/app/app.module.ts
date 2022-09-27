@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from "./content/list-component/list.component";
 import { PopupCardComponent } from "./content/popup-card-component/popup-card.component";
+import { CardDecorationComponent } from './content/card-decoration/card-decoration.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PopupCardComponent } from "./content/popup-card-component/popup-card.co
     SidenavComponent,
     HeaderComponent,
     ListComponent,
-    PopupCardComponent
+    PopupCardComponent,
+    CardDecorationComponent
   ],
   imports: [
     BrowserModule,

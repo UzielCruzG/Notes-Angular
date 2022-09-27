@@ -1,6 +1,5 @@
 <div class="container" *ngIf="shouldRun">
-
-  <mat-toolbar class="toobar">
+  <mat-toolbar class="toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -8,32 +7,51 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="56">
-
     <mat-sidenav mode="side" #snav opened>
-      <h1>Bienvenido</h1>
+      <div class="img-container">
+        <img src="./icon-gcf85f3119_640.png">
+      </div>
+      <div class="text-container">
+        <h1>Bienvenido</h1>
+      </div>
+      <div class="icons">
+        <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home" class="icon">
+        </mat-icon>
+      </div>
+      <hr>
       <mat-nav-list class="nav-list">
-
-        <mat-icon>
-          <div class="img"></div>
-        </mat-icon>
-
-        <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home">
-          <p>Inicio</p>
-        </mat-icon>
-
-        <mat-slide-toggle>Modo Oscuro</mat-slide-toggle>
-
-        <button mat-raised-button routerLink="." class="btnCerrarSesion">Cerrar Sesión</button>
+        <div class="list-item">
+          <mat-list-item> Usuario </mat-list-item>
+        </div>
+        <hr />
+        <div class="list-item">
+          <mat-list-item> Mis listas </mat-list-item>
+        </div>
+        <div class="list-item">
+          <mat-list-item> Configuracion </mat-list-item>
+        </div>
+        <div class="list-item">
+          <mat-list-item>
+            Modo Oscuro <mat-slide-toggle class="dark-mode" color="primary"></mat-slide-toggle>
+          </mat-list-item>
+        </div>
+        <div class="button-container">
+          <button mat-raised-button routerLink="." class="btnCerrarSesion">
+            Cerrar Sesión
+          </button>
+        </div>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
       <popup-card></popup-card>
-      <list-component>
-
-      </list-component>
+      <div class="content-container">
+        <div class="list-component-container">
+          <list-component></list-component>
+        </div>
+        <div class="card-decoration-container">
+          <card-decoration></card-decoration>
+        </div>
+      </div>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
-
-
 </div>

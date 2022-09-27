@@ -4,31 +4,82 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgb(255, 255, 255);
+  /*background: rgb(31, 31, 31);*/
+  z-index: 1;
 }
 
 .toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
+  /*background-color: rgb(42, 52, 65);*/
+ /* color: white;*/
 }
 
-.mat-nav-list {
-  padding: auto;
-  position: absolute;
-  margin-bottom: auto;
-}
-
-.mat-nav-list .btnCerrarSesion{
+.btnCerrarSesion{
   text-align:center;
-  margin-bottom: 20px;
-  background-color: brown;
+  margin-top: 1rem;
+  background-color: blue;
   font-size: 15px;
-
+  color: white;
 }
 
-.img{
-  background-image: url("icon-gcf85f3119_640.png");
-  width: 100px;
-  height: 100px;
+.button-container{
+  display: flex;
+  justify-content: center;
 }
+
+.img-container{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+
+.img-container img{
+  width: 33%;
+  height: auto;
+}
+
+.list-item{
+  width: 100%;
+  display: inline-block;
+/*  background-color: rgb(62, 81, 105);*/
+}
+.dark-mode{
+  margin-left: 1rem;
+}
+
+mat-sidenav {
+  width: 18rem;
+  z-index: 2;
+  /*background-color: rgb(54, 67, 84);*/
+}
+
+mat-sidenav .text-container{
+  margin-top: 1rem;
+}
+
+mat-sidenav h1{
+  font-style: oblique;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+.icon{
+  margin-left: 1rem;
+}
+
+.content-container{
+  display: flex;
+}
+
+.list-component-container{
+  flex: 2;
+}
+
+.card-decoration-container{
+  flex: 1;
+}
+

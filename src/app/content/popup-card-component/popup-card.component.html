@@ -8,31 +8,25 @@
   <mat-card class="card">
     <div
       class="title-container">
-      <h1 class="font-weight-bold">Nueva lista</h1>
+      <h1><b>Nueva lista</b></h1>
     </div>
-
     <mat-dialog-content>
       <div class="content">
         <input matInput type="text" placeholder="Nombre"/>
       </div>
     </mat-dialog-content>
-
     <mat-dialog-actions class="buttons">
       <button
         mat-raised-button
-        type="button"
-        class="btn btn-light"
-        (click)="popup = false"
-      >
-        Cancelar
+        type="button">
+        Guardar
       </button>
       <button
         mat-raised-button
         style="margin-left: 5%"
         type="button"
-        class="btn btn-dark"
-      >
-        Guardar
+        (click)="popup = false">
+        Cancelar
       </button>
     </mat-dialog-actions>
   </mat-card>
