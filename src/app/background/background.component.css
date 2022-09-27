@@ -1,0 +1,65 @@
+@keyframes move-twink-back {
+  from {
+      background-position: 0 0;
+  }
+
+  to {
+      background-position: -10000px 5000px;
+  }
+}
+
+@-webkit-keyframes move-twink-back {
+  from {
+      background-position: 0 0;
+  }
+
+  to {
+      background-position: -10000px 5000px;
+  }
+}
+
+@-moz-keyframes move-twink-back {
+  from {
+      background-position: 0 0;
+  }
+
+  to {
+      background-position: -10000px 5000px;
+  }
+}
+
+@-ms-keyframes move-twink-back {
+  from {
+      background-position: 0 0;
+  }
+
+  to {
+      background-position: -10000px 5000px;
+  }
+}
+
+.estrellas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+body {
+  background: #000 url(http://1.bp.blogspot.com/-q7NYia_DjQI/U4t7_J4gwwI/AAAAAAAAMKo/nru4YxfjK6I/s1600/estrellas.png) repeat top center;
+}
+
+.estrellas {
+  background: transparent url(http://3.bp.blogspot.com/-FwB8aSiMBmI/U4t9MkimRrI/AAAAAAAAMK0/FAlqX8ZFyu8/s1600/twinkling.png) repeat top center;
+  z-index: -2;
+
+  -moz-animation: move-twink-back 100s linear infinite;
+  -ms-animation: move-twink-back 100s linear infinite;
+  -o-animation: move-twink-back 100s linear infinite;
+  -webkit-animation: move-twink-back 100s linear infinite;
+  animation: move-twink-back 100s linear infinite;
+}

@@ -23,6 +23,7 @@ import { HeaderComponent } from './header/header.component';
 import { ListComponent } from "./content/list-component/list.component";
 import { PopupCardComponent } from "./content/popup-card-component/popup-card.component";
 import { CardDecorationComponent } from './content/card-decoration/card-decoration.component';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CardDecorationComponent } from './content/card-decoration/card-decorati
     HeaderComponent,
     ListComponent,
     PopupCardComponent,
-    CardDecorationComponent
+    CardDecorationComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,

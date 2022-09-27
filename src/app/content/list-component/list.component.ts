@@ -16,5 +16,4 @@ export class ListComponent{
     {id: 3, name:'Robin'},
     {id: 4, name:'Flash'}
   ];
-
 }

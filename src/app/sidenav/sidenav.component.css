@@ -1,12 +1,13 @@
 .sidenav-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   /*background: rgb(31, 31, 31);*/
-  z-index: 1;
+  z-index: 0;
 }
+
 
 .toolbar {
   position: fixed;
@@ -26,6 +27,13 @@
 .button-container{
   display: flex;
   justify-content: center;
+}
+
+.button-top-container{
+  display: flex;
+  justify-content: left;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 .img-container{
