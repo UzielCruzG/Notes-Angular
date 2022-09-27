@@ -1,0 +1,35 @@
+<div class="container" *ngIf="shouldRun">
+
+  <mat-toolbar class="toobar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="namePage">My Notes</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="56">
+
+    <mat-sidenav mode="side" #snav opened>
+      <h1>Bienvenido</h1>
+      <mat-nav-list class="nav-list">
+
+        <mat-icon>
+          <img src="./icon-gcf85f3119_640.png">
+        </mat-icon>
+
+        <mat-icon aria-hidden="false" aria-label="Home icon" fontIcon="home">
+          <p>Inicio</p>
+        </mat-icon>
+
+        <mat-slide-toggle>Modo Oscuro</mat-slide-toggle>
+
+        <button mat-raised-button routerLink="." class="btnCerrarSesion">Cerrar Sesión</button>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>Main content
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+
+</div>

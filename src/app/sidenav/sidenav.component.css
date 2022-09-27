@@ -1,0 +1,28 @@
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+}
+
+.toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.mat-nav-list {
+  padding: auto;
+  position: absolute;
+  margin-bottom: auto;
+}
+
+.mat-nav-list .btnCerrarSesion{
+  text-align:center;
+  margin-bottom: 20px;
+  background-color: brown;
+  font-size: 15px;
+
+}
