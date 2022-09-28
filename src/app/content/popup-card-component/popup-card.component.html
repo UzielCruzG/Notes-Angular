@@ -6,13 +6,13 @@
     </div>
     <mat-dialog-content>
       <div class="content">
-        <input matInput type="text" placeholder="Nombre"/>
+        <input #nombre type="text" placeholder="Nombre"/>
       </div>
     </mat-dialog-content>
     <mat-dialog-actions class="buttons">
       <button
         mat-raised-button
-        type="button">
+        type="button" (click)="onAddList(nombre.value)">
         Guardar
       </button>
       <button

@@ -1,5 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatDialogModule } from "@angular/material/dialog";
+import { List } from "./list.model";
+import { ListService } from "./list.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'list-component',
@@ -8,7 +11,25 @@ import { MatDialogModule } from "@angular/material/dialog";
 })
 
 
-export class ListComponent{
+export class ListComponent implements OnInit, OnDestroy{
+
+  lists:List[] = []
+  private listSub:Subscription
+
+  constructor(public listService:ListService){}
+
+  ngOnInit(){
+    this.lists = this.listService.getLists()
+    this.listSub = this.listService.getListsUpdateListener()
+    .subscribe((lists:List[])=>{
+      this.lists = lists
+    })
+  }
+
+  ngOnDestroy(){
+    this.listSub.unsubscribe()
+  }
+
   HEROES = [
     {id: 1, name:'Superman'},
     {id: 2, name:'Batman'},
@@ -16,4 +37,6 @@ export class ListComponent{
     {id: 3, name:'Robin'},
     {id: 4, name:'Flash'}
   ];
+
+
 }
