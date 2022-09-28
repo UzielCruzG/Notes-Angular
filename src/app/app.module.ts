@@ -12,6 +12,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -50,7 +51,8 @@ import { BackgroundComponent } from './background/background.component';
     MatDialogModule,
     MatInputModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,22 +6,36 @@
   right: 0;
   /*background: rgb(31, 31, 31);*/
   z-index: 0;
+  /*background-color: #2a2a2a;*/
+  background-color: #1c1c1c;
 }
 
 
 .toolbar {
   position: fixed;
+  /*Invertir*/
+  background-color: #212121;
+  color: white;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
   /*background-color: rgb(42, 52, 65);*/
  /* color: white;*/
 }
 
+ /*Invertir*/
+.icons{
+  color: white;
+}
+
 .btnCerrarSesion{
   text-align:center;
   margin-top: 1rem;
-  background-color: blue;
+  background-color: rgb(88, 88, 247);
   font-size: 15px;
   color: white;
+}
+
+.button-container  :hover{
+  background-color: tomato;
 }
 
 .button-container{
@@ -55,18 +69,33 @@
   display: inline-block;
 /*  background-color: rgb(62, 81, 105);*/
 }
+
+/*Invertir */
+.list-item mat-list-item{
+  color: white;
+}
+
 .dark-mode{
   margin-left: 1rem;
+
 }
 
 mat-sidenav {
   width: 18rem;
   z-index: 2;
+  /*Color a invertir*/
+  background-color: #2a2a2a;
   /*background-color: rgb(54, 67, 84);*/
+}
+
+mat-sidenav .list-item :hover{
+background-color: #363636;
 }
 
 mat-sidenav .text-container{
   margin-top: 1rem;
+  /*Invertir*/
+  color: white;
 }
 
 mat-sidenav h1{
@@ -91,3 +120,18 @@ mat-sidenav h1{
   flex: 1;
 }
 
+
+/*Modo Oscuro --- en proceso*/
+html .dark-mode{
+  filter: invert(100%);
+}
+
+.button-top-container .add-button {
+background-color: #2a2a2a;
+color: white;
+}
+
+mat-sidenav-content .button-top-container :hover {
+  background-color: #fffafa;
+  color: rgb(0, 0, 0);
+  }

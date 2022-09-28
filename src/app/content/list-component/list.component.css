@@ -18,3 +18,31 @@
 .buttons-container{
   float: right;
 }
+
+
+/*Invertir*/
+.buttons-container button{
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.panel .buttons-container :hover{
+  background-color: #ffffff;
+  color: #2a2a2a;
+}
+
+
+/*Invertir*/
+.panel{
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.list-component :hover{
+  background-color: #363636;
+}
+
+.list-component mat-action-row :hover{
+  background-color: #ffffff;
+  color: #2a2a2a;
+}

@@ -1,7 +1,7 @@
-<mat-accordion multi="true" class="list-component" *ngFor="let hero of HEROES">
+<mat-accordion multi="true" class="list-component">
   <mat-expansion-panel class="panel">
     <mat-expansion-panel-header> Title </mat-expansion-panel-header>
-    <div class="row" *ngFor="let hero of HEROES">
+    <div class="row">
       <div class="row-content">
         <p>Content</p>
       </div>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <mat-action-row>
-      <button mat-raised-button color="primary">Agregar</button>
+      <button mat-raised-button color="primary" class="button-add">Agregar</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>

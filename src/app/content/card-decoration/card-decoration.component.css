@@ -1,3 +1,26 @@
 mat-card{
   margin: 2rem 1rem 1rem 1rem;
+  background-color: transparent;
+  display: block;
+  justify-content: center;
 }
+
+.content-mat-card {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.mat-spinner{
+  display: inline-block;
+}
+
+.content-spinner .spinner{
+  text-align: center;
+}
+
+.content-spinner .content-text-spinner{
+  color: white;
+  text-align: center;
+}
+
