@@ -15,7 +15,7 @@
 .card{
   margin: 70px auto;
   padding: 20px;
-  background: #fff;
+  background:  #363636;
   border-radius: 5px;
   width: 30%;
   position: flex;
@@ -33,6 +33,7 @@
 
 .title-container h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
 }
 
 .content{
@@ -46,9 +47,16 @@
   width: 100%;
   min-height: 30px;
   font-size: 18px;
+  background-color: #2a2a2a;
+  color: white;
 }
 
 .add-button{
   margin-left: 1rem;
   margin-top: 1rem;
+}
+
+.buttons button{
+  color: white;
+  background-color: #2a2a2a;
 }

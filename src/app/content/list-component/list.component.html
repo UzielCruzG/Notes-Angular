@@ -1,7 +1,7 @@
-<mat-accordion multi="true" class="list-component">
+<mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
   <mat-expansion-panel class="panel">
-    <mat-expansion-panel-header> Title </mat-expansion-panel-header>
-    <div class="row">
+    <mat-expansion-panel-header> {{list.title}} </mat-expansion-panel-header>
+    <div class="row" *ngFor="let hero of HEROES">
       <div class="row-content">
         <p>Content</p>
       </div>
