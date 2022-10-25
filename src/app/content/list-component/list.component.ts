@@ -19,7 +19,7 @@ export class ListComponent implements OnInit, OnDestroy{
   constructor(public listService:ListService){}
 
   ngOnInit(){
-    this.lists = this.listService.getLists()
+    this.listService.getLists()
     this.listSub = this.listService.getListsUpdateListener()
     .subscribe((lists:List[])=>{
       this.lists = lists
@@ -28,6 +28,12 @@ export class ListComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(){
     this.listSub.unsubscribe()
+  }
+
+  OnDelete(id: string){
+    console.log("OnDeleteID:" + id)
+    this.listService.deleteList(id)
+
   }
 
   HEROES = [

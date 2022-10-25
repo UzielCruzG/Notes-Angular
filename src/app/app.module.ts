@@ -13,7 +13,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { HttpClientModule } from "@angular/common/http";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,7 +52,8 @@ import { BackgroundComponent } from './background/background.component';
     MatInputModule,
     MatExpansionModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

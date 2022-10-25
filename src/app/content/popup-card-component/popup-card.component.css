@@ -23,26 +23,22 @@
   z-index: 101;
   align-items: center;
 }
-
 .title-container{
   width: 100%;
   height: 50px;
   margin-top: 1%;
   text-align: center;
 }
-
 .title-container h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: white;
 }
-
 .content{
   display: flex;
   margin-bottom: 1rem;
   justify-content: center;
   width: 100%;
 }
-
 .content input{
   width: 100%;
   min-height: 30px;
