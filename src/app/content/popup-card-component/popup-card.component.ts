@@ -9,18 +9,20 @@ import { ListService } from "../list-component/list.service";
   styleUrls: ['./popup-card.component.css']
 })
 export class PopupCardComponent implements OnInit, OnDestroy{
+
   popup = false
   private popupSub: Subscription
 
   constructor(public popupService: PopupService, public listsService:ListService){}
   ngOnInit(){
-    this.popupSub = this.popupService.popupUpdateListener()
+  /*  this.popupSub = this.popupService.popupUpdateListener()
     .subscribe((popup: Popup[])=> {
       this.popup = popup[0].popup
     })
+    */
   }
   ngOnDestroy(){
-    this.popupSub.unsubscribe()
+    /*this.popupSub.unsubscribe()*/
   }
 
   onAddList(title:string){

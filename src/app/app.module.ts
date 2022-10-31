@@ -14,6 +14,10 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from "@angular/common/http";
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from "@angular/forms";
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,7 +29,8 @@ import { ListComponent } from "./content/list-component/list.component";
 import { PopupCardComponent } from "./content/popup-card-component/popup-card.component";
 import { CardDecorationComponent } from './content/card-decoration/card-decoration.component';
 import { BackgroundComponent } from './background/background.component';
-
+import { AddActivityCard } from './content/add-activity-card/add-activity-card.component';
+import { AddListCard } from "./content/add-list-card/add-list-card.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,9 @@ import { BackgroundComponent } from './background/background.component';
     ListComponent,
     PopupCardComponent,
     CardDecorationComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    AddActivityCard,
+    AddListCard
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,10 @@ import { BackgroundComponent } from './background/background.component';
     MatExpansionModule,
     MatCardModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

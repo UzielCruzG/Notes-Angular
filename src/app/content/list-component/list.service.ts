@@ -3,6 +3,7 @@ import { Subject } from "rxjs";
 import { List } from "./list.model";
 import { HttpClient} from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { Activity } from "./activity.model";
 
 @Injectable({providedIn: 'root'})
 
@@ -21,6 +22,7 @@ export class ListService{
       return listData.lists.map(list => {
         return {
           title: list.title,
+          activities: list.activities,
           id: list._id
         }
       })
@@ -32,12 +34,12 @@ export class ListService{
   }
 
   getList(id: string){
-    return this.http.get<{id: string, title: string}>
+    return this.http.get<{id: string, title: string, activities: [{name: string, date: Date}]}>
     ('http://localhost:3000/api/lists' + id)
   }
 
   addList(title:string){
-    const list:List = {id: null, title:title}
+    const list:List = {id: null, title:title, activities: null}
     this.http.post<{message: string, listId: string}>('http://localhost:3000/api/lists', list)
     .subscribe((responseData) => {
       const id = responseData.listId
@@ -48,7 +50,7 @@ export class ListService{
   }
 
   updateList(id: string, title: string){
-    const list: List = {id: id, title: title}
+    const list: List = {id: id, title: title, activities: null}
     this.http.put('http://localhost:3000/api/lists' + id, list)
     .subscribe(response => {
       const updatedLists = [...this.lists]
@@ -70,5 +72,23 @@ export class ListService{
       })
     }
   }
-}
 
+  addActivity(idList:string, title: string, name: string, date: Date){
+    const activity: Activity = {id: null, name, date}
+    this.http.put<{message: string, activityId: string}>('http://localhost:3000/api/lists/addActivity/' + idList, activity)
+    .subscribe(responseData => {
+      const id = responseData.activityId
+      activity.id = id
+      const updatedLists = [...this.lists]
+      const oldListIndex = updatedLists.findIndex(p => p.id === idList)
+      if(updatedLists[oldListIndex].activities != null){
+        updatedLists[oldListIndex].activities.push(activity)
+      }else{
+        updatedLists[oldListIndex].activities = [activity]
+      }
+      this.lists = updatedLists
+      console.log([...this.lists])
+      this.listSub.next([...this.lists])
+    })
+  }
+}

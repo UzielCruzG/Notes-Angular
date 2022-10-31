@@ -4,7 +4,8 @@ const List = require('../models/list')
 
 router.post('', (req,res,next) => {
   const list = new List({
-    title: req.body.title
+    title: req.body.title,
+    activities: []
   })
 
   list.save().then(createdList => {
@@ -78,5 +79,27 @@ router.delete('/:id', (req, res, next) => {
   })
 
 })
+
+router.put('/addActivity/:id', (req, res, next) => {
+
+  const activity = {name: req.body.name, date: req.body.date}
+
+  List.updateOne({_id: req.params.id}, {$push:{activities: activity}}).then(result => {
+  })
+
+  List.findById((req.params.id)).then(list => {
+
+    const activities = list['activities']
+
+    activityFiltered = activities[activities.length - 1]
+
+    res.status(201).json({
+      message: "Activity added!",
+      activityId: activityFiltered.id
+    })
+
+  })
+})
+
 
 module.exports = router

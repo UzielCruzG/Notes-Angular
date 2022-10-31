@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../content/list-component/list.service';
-import { PopupService } from '../content/popup-card-component/popup.service';
+import { MatDialog } from "@angular/material/dialog";
+import { AddListCard } from '../content/add-list-card/add-list-card.component';
 
 @Component({
   selector: 'app-sidenav',
@@ -12,10 +13,12 @@ export class SidenavComponent{
 
   shouldRun = true;
 
-  constructor(public popupService: PopupService, public listService:ListService){}
+  constructor(public listService:ListService, public dialog:MatDialog){}
 
-  turnOnPopup(popup:boolean){
-    this.popupService.turnOnPopup(popup)
+  openDialog(): void {
+    this.dialog.open(AddListCard, {
+      width: '250px',
+    })
   }
 
 }
