@@ -1,1 +1,59 @@
+h1{
+  color: white;
+}
+
+::ng-deep .mat-dialog-container{
+  background-color:#2a2a2a!important;
+}
+
+
+input{
+  color: white;
+}
+
+
+::ng-deep .mat-form-field-label{
+  color: white !important;
+}
+
+::ng-deep .mat-calendar{
+  background-color: #2a2a2a!important;
+  color: white;
+
+}
+
+::ng-deep .mat-calendar-body-label{
+  color: white;
+}
+
+::ng-deep .mat-calendar-body-cell-content{
+  color: white;
+}
+
+::ng-deep .mat-calendar-table-header{
+  color: white;
+}
+
+::ng-deep .mat-calendar-arrow{
+  border-top-color: white;
+  color: white;
+}
+
+::ng-deep .mat-icon-button{
+  color: white;
+}
+
+
+::ng-deep.mat-form-field-underline{
+  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white !important;
+}
+
+button{
+  color: white;
+  background-color: rgb(88, 88, 247);;
+}
 

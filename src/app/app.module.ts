@@ -31,6 +31,7 @@ import { CardDecorationComponent } from './content/card-decoration/card-decorati
 import { BackgroundComponent } from './background/background.component';
 import { AddActivityCard } from './content/add-activity-card/add-activity-card.component';
 import { AddListCard } from "./content/add-list-card/add-list-card.component";
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { AddListCard } from "./content/add-list-card/add-list-card.component";
     CardDecorationComponent,
     BackgroundComponent,
     AddActivityCard,
-    AddListCard
+    AddListCard,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
