@@ -21,6 +21,14 @@ export class SidenavComponent{
     })
   }
 
+  checked = false;
+
+    changed(){
+      if(true){
+        var boton = document.body;
+        boton.classList.toggle(".btnCerrarSesion");
+      }
+    }
 }
 
 

@@ -7,7 +7,7 @@
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="56">
-    <mat-sidenav mode="side" #snav opened>
+    <mat-sidenav mode="side" #snav closed>
       <div class="img-container">
         <img src="./assets/images/default-user-image.png"/>
       </div>
@@ -32,17 +32,20 @@
         </div>
         <div class="list-item">
           <mat-list-item>
-            Modo Oscuro
+            Modo Oscuro {{checked}}
             <mat-slide-toggle
               class="dark-mode"
               color="primary"
               id="dark-mode"
+              [(ngModel)]="checked"
+              (change)="changed()"
+
               onclick="document.documentElement.classList.toggle('dark-mode')"
             ></mat-slide-toggle>
           </mat-list-item>
         </div>
         <div class="button-container">
-          <button mat-raised-button routerLink="." class="btnCerrarSesion">
+          <button mat-raised-button routerLink="." class="btnCerrarSesion" >
             Cerrar Sesión
           </button>
         </div>

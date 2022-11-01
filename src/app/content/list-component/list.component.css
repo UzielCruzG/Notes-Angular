@@ -24,6 +24,14 @@
   background-color: transparent;
   color: #ffffff;
 }
+.buttons-container .btnEdit{
+  display: none;
+  visibility: hidden;
+}
+.panel :hover .btnEdit{
+    display: inline-block;
+    visibility: visible;
+}
 
 .panel .buttons-container :hover{
   background-color: #ffffff;
