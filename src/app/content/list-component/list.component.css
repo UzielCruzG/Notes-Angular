@@ -73,6 +73,13 @@
 .list-component:hover  .btnDeleteList{
   display: block;
   visibility: visible;
+  background-color: transparent;
+  border-radius: 50px;
+  border-color: transparent;
+}
+
+.btnDL{
+  color: red;
 }
 
 .btnDeleteList{
