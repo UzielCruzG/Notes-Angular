@@ -18,4 +18,8 @@ export class DeleteList{
     this.dialog.close()
   }
 
+  onCancelar(){
+    this.dialog.close()
+  }
+
 }

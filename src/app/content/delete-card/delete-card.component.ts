@@ -17,4 +17,8 @@ export class DeleteCard{
     this.dialog.close()
   }
 
+  onCancelar(){
+    this.dialog.close()
+  }
+
 }
