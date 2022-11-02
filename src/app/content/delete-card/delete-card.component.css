@@ -1,0 +1,28 @@
+h1{
+  color: white;
+}
+
+::ng-deep .mat-dialog-container{
+  background-color:#2a2a2a!important;
+}
+
+.input{
+    color: white;
+}
+
+::ng-deep .mat-form-field-label {
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white !important;
+}
+
+button{
+  color: white;
+  background-color: rgb(88, 88, 247);;
+}

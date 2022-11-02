@@ -15,10 +15,10 @@
         <p>{{actvity.name}}</p>
       </div>
       <div class="buttons-container">
-        <button mat-raised-button>
+        <button mat-raised-button openDialogUpdate(list.id, list.title, activity._id, activity.name, activity.date)>
           <mat-icon class="btnEdit">edit</mat-icon>
         </button>
-        <button mat-raised-button>
+        <button mat-raised-button openDialogDelete(list.id, activity._id, activity.name, activity.date)>
           <mat-icon class="btnDel">delete</mat-icon>
         </button>
       </div>

@@ -4,6 +4,7 @@ import { List } from "./list.model";
 import { ListService } from "./list.service";
 import { Subscription } from "rxjs";
 import { AddActivityCard } from "../add-activity-card/add-activity-card.component";
+import { DeleteCard } from "../delete-card/delete-card.component";
 
 @Component({
   selector: 'list-component',
@@ -37,23 +38,31 @@ export class ListComponent implements OnInit, OnDestroy{
 
   }
 
-  HEROES = [
-    {id: 1, name:'Superman'},
-    {id: 2, name:'Batman'},
-    {id: 5, name:'BatGirl'},
-    {id: 3, name:'Robin'},
-    {id: 4, name:'Flash'}
-  ];
-
-  //Testing this button
-
   openDialog(id:string, title: string): void {
     this.dialog.open(AddActivityCard, {
       width: '250px',
-      data: {id: id, title: title}
+      data: {idList: id, title: title}
+    });
+    console.log(this.lists)
+  }
 
+  openDialogUpdate(idList:string, title :string, idActivity: string, name: string, date:Date): void {
+
+    this.dialog.open(AddActivityCard, {
+      width: '250px',
+      data: {idList: idList, title: title, idActivity: idActivity, name: name, date: date}
     });
 
   }
+
+  openDialogDelete(idList:string, idActivity: string, name: string, date:Date): void {
+
+    this.dialog.open(DeleteCard, {
+      width: '250px',
+      data: {idList: idList, idActivity: idActivity, name: name, date: date}
+    });
+
+  }
+
 
 }

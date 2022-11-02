@@ -14,20 +14,37 @@ export class AddActivityCard implements OnInit{
 
   activity: Activity
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: string, title:string}, public listsService:ListService, public dialog:MatDialogRef<AddActivityCard>){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {idList: string, title:string, idActivity: string, name:string, date:Date}, public listsService:ListService, public dialog:MatDialogRef<AddActivityCard>){}
 
   ngOnInit(){
-    console.log(this.data.id," ", this.data.title)
+    if (this.data.idActivity) {
+      this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
+    }
+    console.log(this.data)
+
   }
 
   onAddActivity(name: string, date: string, titleForm, dateForm: NgModel){
     if (titleForm.invalid || dateForm.invalid) {
       return
     }
-
+    console.log(this.data.idList)
     const dateFormatted = new Date(date)
-    console.log(dateFormatted)
-    this.listsService.addActivity(this.data.id, this.data.title, name, dateFormatted)
+    this.listsService.addActivity(this.data.idList, this.data.title, name, dateFormatted)
     this.dialog.close()
+  }
+
+  onUpdateActivity(name: string, date: Date){
+    this.listsService.updateActivity(this.data.idList, this.data.idActivity, name, date)
+    this.dialog.close()
+  }
+
+  onSave(name: string, date: string, titleForm, dateForm: NgModel){
+    const dateFormatted = new Date(date)
+    if (this.data.idActivity != undefined ) {
+      this.onUpdateActivity(name, dateFormatted)
+    }else{
+      this.onAddActivity(name, date, titleForm, dateForm)
+    }
   }
 }
