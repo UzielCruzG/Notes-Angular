@@ -66,9 +66,16 @@ input{
   color: white;
 }
 
+.loginButton:hover{
+  background-color: rgba(199, 255, 143, 0.596);
+  color: black;
+}
+
 .createAccountButton{
   float: left;
   color: rgb(88, 88, 247);
+  outline:none;
+  border: 0;
 
 }
 

@@ -32,10 +32,13 @@
 .buttons-container .btnDel{
   display: none;
   visibility: hidden;
+
 }
+
 .panel :hover .btnDel{
     display: inline-block;
     visibility: visible;
+
 }
 
 .panel .buttons-container :hover{
@@ -67,22 +70,37 @@
 
 .prueba{
   display: flex;
-  align-content: center;
+  position: relative;
+  top: 50%;
 }
 
+.prueba .space-icon{
+  position: relative;
+  margin-left: auto;
+  max-width: 10%;
+  border: 0;
+  outline:none;
+
+}
+
+.btnDL{
+  color: red;
+  border: 0;
+  outline:none;
+}
 .list-component:hover  .btnDeleteList{
   display: block;
   visibility: visible;
   background-color: transparent;
   border-radius: 50px;
   border-color: transparent;
+  border: 0;
+  outline:none;
 }
 
-.btnDL{
-  color: red;
-}
 
 .btnDeleteList{
   display: none;
   visibility: hidden;
+
 }
