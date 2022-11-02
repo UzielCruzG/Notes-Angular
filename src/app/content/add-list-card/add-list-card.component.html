@@ -2,11 +2,11 @@
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input matInput type="text" cdkFocusInitial name="title" [ngModel]="list?.title" required #title="ngModel">
+    <input class="input" matInput type="text" cdkFocusInitial name="title" [ngModel]="list?.title" required #title="ngModel">
     <mat-error *ngIf="title.invalid">Por favor ingrese un nombre</mat-error>
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="diagBtn">
   <button mat-button (click)="onAddList(title.value, title)">Guardar</button>
   <button mat-button mat-dialog-close>Cancelar</button>
 </div>

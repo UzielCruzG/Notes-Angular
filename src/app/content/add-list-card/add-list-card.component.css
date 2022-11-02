@@ -6,10 +6,6 @@ h1{
   background-color:#2a2a2a!important;
 }
 
-.input{
-    color: white;
-}
-
 ::ng-deep .mat-form-field-label {
   color: white !important;
 }
@@ -22,8 +18,18 @@ h1{
   color: white !important;
 }
 
-button{
+.input{
   color: white;
-  background-color: rgb(88, 88, 247);;
 }
 
+button{
+  color: white;
+  background-color: transparent;
+  font-size: 15px;
+  border-radius: 7px;
+  border: 0;
+}
+button:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+}

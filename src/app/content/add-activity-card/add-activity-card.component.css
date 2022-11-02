@@ -54,6 +54,12 @@ h1{
 
 button{
   color: white;
-  background-color: rgb(88, 88, 247);;
+  background-color: transparent;
+  font-size: 15px;
+  border-radius: 7px;
+  border: 0;
 }
-
+button:hover{
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
