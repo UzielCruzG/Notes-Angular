@@ -72,9 +72,10 @@ export class ListService {
   }
 
   deleteList(id: string) {
+    console.log(id)
     if (id != null) {
       this.http
-        .delete<{ message: string }>('http://localhost:3000/api/lists' + id)
+        .delete<{ message: string }>('http://localhost:3000/api/lists/' + id)
         .subscribe((responseData) => {
           const updateLists = this.lists.filter((list) => list.id !== id);
           this.lists = updateLists;

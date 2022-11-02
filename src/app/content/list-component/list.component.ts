@@ -5,6 +5,7 @@ import { ListService } from "./list.service";
 import { Subscription } from "rxjs";
 import { AddActivityCard } from "../add-activity-card/add-activity-card.component";
 import { DeleteCard } from "../delete-card/delete-card.component";
+import { DeleteList } from "../delete-list/delete-list.component";
 
 @Component({
   selector: 'list-component',
@@ -64,5 +65,13 @@ export class ListComponent implements OnInit, OnDestroy{
 
   }
 
+  openDialogDeleteList(idList:string): void {
+
+    this.dialog.open(DeleteList, {
+      width: '250px',
+      data: {idList: idList}
+    });
+
+  }
 
 }

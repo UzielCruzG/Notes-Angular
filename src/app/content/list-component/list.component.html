@@ -4,7 +4,7 @@
      <div class="prueba">
       {{list.title}}
       <mat-panel-description>
-        <button mat-raised-button class="btnDeleteList">
+        <button mat-raised-button class="btnDeleteList" (click)="openDialogDeleteList(list.id)">
           <mat-icon type="button" class="btnDL">clear</mat-icon>
         </button>
       </mat-panel-description>
