@@ -1,4 +1,8 @@
-<mat-spinner *ngIf="lists.length == 0"></mat-spinner>
+<div class="div-spinner" *ngIf="lists.length == 0">
+<div class="spinner">
+<mat-spinner [diameter]="300" class="mat-spinner"></mat-spinner>
+</div>
+</div>
 <mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
 <mat-expansion-panel class="panel">
   <mat-expansion-panel-header>

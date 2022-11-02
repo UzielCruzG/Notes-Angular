@@ -104,3 +104,26 @@
   visibility: hidden;
 
 }
+
+.spinner{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.div-spinner{
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-spinner{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  stroke: aqua;
+}
+
+.mat-spinner::ng-deep{
+  stroke: aqua;
+}
