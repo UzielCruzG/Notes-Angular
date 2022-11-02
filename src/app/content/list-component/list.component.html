@@ -1,4 +1,5 @@
-  <mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
+<mat-spinner *ngIf="lists.length == 0"></mat-spinner>
+<mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
 <mat-expansion-panel class="panel">
   <mat-expansion-panel-header>
      <div class="prueba">
