@@ -4,11 +4,9 @@
      <div class="prueba">
       {{list.title}}
       <mat-panel-description>
-        <div class="space-icon">
-        <button mat-raised-button class="btnDeleteList">
+        <button mat-raised-button class="btnDeleteList" (click)="openDialogDeleteList(list.id)">
           <mat-icon type="button" class="btnDL">clear</mat-icon>
         </button>
-      </div>
       </mat-panel-description>
     </div>
   </mat-expansion-panel-header>
