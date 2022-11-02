@@ -13,7 +13,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from "@angular/forms";
@@ -67,7 +67,9 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    /*{ provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}*/
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
