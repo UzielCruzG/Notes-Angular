@@ -39,7 +39,10 @@
           mat-raised-button
           type="button"
           routerLink="/"
+          (click)="toggleLoading()"
+          [disabled]="isLoading"
         >
+        <mat-spinner *ngIf="isLoading" class="mat-spinner"></mat-spinner>
           Iniciar sesion
         </button>
       </mat-dialog-actions>
