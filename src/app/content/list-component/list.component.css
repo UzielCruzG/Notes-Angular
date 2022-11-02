@@ -7,10 +7,6 @@
   display: inline-block;
 }
 
-.list-component{
-  margin: 1rem;
-}
-
 .row-content p {
   margin-top: 10px;
 }
@@ -33,11 +29,26 @@
     visibility: visible;
 }
 
+.buttons-container .btnDel{
+  display: none;
+  visibility: hidden;
+}
+.panel :hover .btnDel{
+    display: inline-block;
+    visibility: visible;
+}
+
 .panel .buttons-container :hover{
   background-color: #ffffff;
   color: #2a2a2a;
 }
 
+.list-component{
+  margin: 1rem;
+  /*Pruebas de boton de borrado*/
+  display: grid;
+
+}
 
 /*Invertir*/
 .panel{
@@ -52,4 +63,19 @@
 .list-component mat-action-row :hover{
   background-color: #ffffff;
   color: #2a2a2a;
+}
+
+.prueba{
+  display: flex;
+  align-content: center;
+}
+
+.list-component:hover  .btnDeleteList{
+  display: block;
+  visibility: visible;
+}
+
+.btnDeleteList{
+  display: none;
+  visibility: hidden;
 }

@@ -1,8 +1,17 @@
-<mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
-  <mat-expansion-panel class="panel">
-    <mat-expansion-panel-header> {{list.title}} </mat-expansion-panel-header>
-    <div class="row" *ngFor="let actvity of list.activities">
-      <div class="row-content">
+  <mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
+<mat-expansion-panel class="panel">
+  <mat-expansion-panel-header>
+     <div class="prueba">
+      {{list.title}}
+      <mat-panel-description>
+        <button mat-raised-button class="btnDeleteList">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-panel-description>
+    </div>
+  </mat-expansion-panel-header>
+  <div class="row" *ngFor="let actvity of list.activities">
+    <div class="row-content">
         <p>{{actvity.name}}</p>
       </div>
       <div class="buttons-container">
@@ -10,7 +19,7 @@
           <mat-icon class="btnEdit">edit</mat-icon>
         </button>
         <button mat-raised-button>
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="btnDel">delete</mat-icon>
         </button>
       </div>
     </div>
@@ -19,3 +28,4 @@
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
+
