@@ -64,6 +64,8 @@ input{
   float: right;
   background-color: rgb(88, 88, 247);
   color: white;
+  margin-top: -15px;
+  margin-right: -1px;
 }
 
 .loginButton:hover{
@@ -76,7 +78,7 @@ input{
   color: rgb(88, 88, 247);
   outline:none;
   border: 0;
-
+  margin-top: -15px;
 }
 
 #stars {
