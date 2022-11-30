@@ -1,0 +1,77 @@
+.background{
+  display: flex;
+  padding-top: 5em;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+}
+
+mat-card{
+  width: 350px;
+  height: 400px;
+  padding-top: 2em;
+  border-radius: 20px;
+  background-color: #2a2a2a;
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container{
+  text-align: center;
+}
+
+.title-container p, b{
+  color: white;
+}
+
+.content{
+  padding-top: 3em;
+}
+
+.content mat-form-field{
+  display: block;
+}
+
+::ng-deep .mat-form-field-label {
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: white !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white !important;
+}
+
+
+input{
+  color: white;
+}
+
+.buttons-container{
+  display: flex;
+  margin-top: auto;
+}
+
+.createAccountButton{
+  margin-left: auto;
+  background-color: rgb(88, 88, 247);
+  color: white;
+}
+
+.createAccountButton:hover{
+  background-color: rgba(199, 255, 143, 0.596);
+  color: black;
+}
+
+.cancel{
+  color: rgb(88, 88, 247);
+  outline:none;
+  border: 0;
+}

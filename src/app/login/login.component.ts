@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NgModel } from "@angular/forms";
+import { UserService } from "../content/create-user-component/user.service";
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,10 @@ import { NgModel } from "@angular/forms";
 
 export class LoginComponent{
 
-  isLoading = false;
+  constructor(public userService:UserService){}
 
-  toggleLoading = () =>{
-    this.isLoading = true;
-    setTimeout(()=>{
-      this.isLoading = false
-    }, 3000)
+  login(username:string, password: string){
+    this.userService.login(username, password)
   }
 
 }

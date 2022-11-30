@@ -2,6 +2,7 @@
   <div id="stars"></div>
   <div id="stars2"></div>
   <div id="stars3"></div>
+
   <mat-card class="card">
     <div class="title-container">
       <h1><b>Iniciar sesion</b></h1>
@@ -9,43 +10,29 @@
     <div mat-dialog-content>
       <div class="content">
         <mat-form-field>
-          <mat-label>Correo</mat-label>
-          <input matInput type="text" cdkFocusInitial name="email" required />
+          <mat-label>Usuario</mat-label>
+          <input matInput type="text" cdkFocusInitial name="username" required #username/>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Contraseña</mat-label>
-          <input
-            matInput
-            type="password"
-            cdkFocusInitial
-            name="password"
-            required
-          />
+          <input matInput type="password" name="password" required #password/>
         </mat-form-field>
       </div>
     </div>
-    <div class="buttons">
-      <mat-dialog-actions>
-        <button
-          class="createAccountButton"
-          mat-stroked-button
-          type="button"
-          routerLink="."
-        >
-          Crear cuenta
-        </button>
-        <button
-          class="loginButton"
-          mat-raised-button
-          type="button"
-          routerLink="/"
-          (click)="toggleLoading()"
-          [disabled]="isLoading"
-        >
-        <mat-spinner *ngIf="isLoading" class="mat-spinner"></mat-spinner>
-          Iniciar sesion
-        </button>
-      </mat-dialog-actions>
-    </div>
+    <mat-dialog-actions class="buttons">
+      <button
+        class="createAccountButton"
+        mat-stroked-button
+        type="button"
+        routerLink="/createAccount">
+        Crear cuenta
+      </button>
+      <button
+        class="loginButton"
+        mat-raised-button
+        type="button" (click)="login(username.value, password.value)"
+      >Iniciar sesion
+      </button>
+    </mat-dialog-actions>
   </mat-card>
 </div>

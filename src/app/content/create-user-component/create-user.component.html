@@ -1,0 +1,38 @@
+<div class="background">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  <mat-card class="card">
+    <div class="title-container">
+      <h1><b>Crear nuevo usuario</b></h1>
+    </div>
+    <div mat-dialog-content>
+      <div class="content">
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <input
+            matInput
+            type="text"
+            cdkFocusInitial
+            name="username"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Correo</mat-label>
+          <input matInput type="text" name="email" required />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" name="password" required />
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-dialog-actions class="buttons-container">
+      <button class="cancel" mat-stroked-button type="button" routerLink="/login">Cancelar</button>
+      <button class="createAccountButton" mat-raised-button type="button">
+        Crear cuenta
+      </button>
+    </mat-dialog-actions>
+  </mat-card>
+</div>

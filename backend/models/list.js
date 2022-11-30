@@ -1,13 +1,9 @@
 const mongoose = require('mongoose')
-//mongoose.com to check for more about functionality
-const activitySchema = mongoose.Schema({
-  name: String,
-  date: Date
-})
+const Activity = require('./activity')
 
 const listSchema = mongoose.Schema({
   title: {type: String, required:true},
-  activities: [activitySchema]
+  activities: [Activity.schema]
 })
 
 
