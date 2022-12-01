@@ -4,12 +4,14 @@ import { List } from './list.model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Activity } from './activity.model';
+import { UserService } from '../create-user-component/user.service';
 
 @Injectable({ providedIn: 'root' })
 export class ListService {
   private lists: List[] = [];
   private listSub = new Subject<List[]>();
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
+  private userId = this.userService.user.id
 
   getListsUpdateListener() {
     return this.listSub.asObservable();
@@ -17,7 +19,7 @@ export class ListService {
 
   getLists() {
     this.http
-      .get<{ message: string; lists: any }>('http://localhost:3000/api/lists')
+      .get<{ message: string; lists: any }>('http://localhost:3000/api/notes/lists/' + this.userService.user.id)
       .pipe(
         map((listData) => {
           return listData.lists.map((list) => {
@@ -35,6 +37,7 @@ export class ListService {
       });
   }
 
+  /*
   getList(id: string) {
     return this.http.get<{
       id: string;
@@ -42,45 +45,40 @@ export class ListService {
       activities: [{ name: string; date: Date }];
     }>('http://localhost:3000/api/lists' + id);
   }
+*/
 
   addList(title: string) {
     const list: List = { id: null, title: title, activities: null };
-    this.http
-      .post<{ message: string; listId: string }>(
-        'http://localhost:3000/api/lists',
-        list
-      )
-      .subscribe((responseData) => {
-        const id = responseData.listId;
-        list.id = id;
-        this.lists.push(list);
-        this.listSub.next([...this.lists]);
-      });
+    this.http.post<{ message: string, listId: string }>('http://localhost:3000/api/notes/'+ this.userId , list)
+    .subscribe((responseData) => {
+      const id = responseData.listId;
+      list.id = id;
+      this.lists.push(list);
+      this.listSub.next([...this.lists]);
+    });
   }
 
   updateList(id: string, title: string) {
     const list: List = { id: id, title: title, activities: null };
-    this.http
-      .put('http://localhost:3000/api/lists' + id, list)
-      .subscribe((response) => {
-        const updatedLists = [...this.lists];
-        const oldListIndex = updatedLists.findIndex((p) => p.id === list.id);
-        updatedLists[oldListIndex] = list;
-        this.lists = updatedLists;
-        this.listSub.next([...this.lists]);
-      });
+    this.http.put('http://localhost:3000/api/notes/updateList/' + id, list)
+    .subscribe((response) => {
+      const updatedLists = [...this.lists];
+      const oldListIndex = updatedLists.findIndex((p) => p.id === list.id);
+      updatedLists[oldListIndex] = list;
+      this.lists = updatedLists;
+      this.listSub.next([...this.lists]);
+    });
   }
 
   deleteList(id: string) {
     console.log(id)
     if (id != null) {
-      this.http
-        .delete<{ message: string }>('http://localhost:3000/api/lists/' + id)
-        .subscribe((responseData) => {
-          const updateLists = this.lists.filter((list) => list.id !== id);
-          this.lists = updateLists;
-          this.listSub.next([...this.lists]);
-        });
+      this.http.delete<{ message: string }>('http://localhost:3000/api/notes/' + this.userId + "/" + id)
+      .subscribe((responseData) => {
+        const updateLists = this.lists.filter((list) => list.id !== id);
+        this.lists = updateLists;
+        this.listSub.next([...this.lists]);
+      });
     }
   }
 
@@ -89,7 +87,7 @@ export class ListService {
     console.log(activity)
     this.http
       .put<{ message: string; activityId: string }>(
-        'http://localhost:3000/api/lists/addActivity/' + idList,
+        'http://localhost:3000/api/notes/createActivity/' + this.userId + "/" + idList,
         activity
       )
       .subscribe((responseData) => {

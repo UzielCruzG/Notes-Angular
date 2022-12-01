@@ -23,7 +23,7 @@ app.use((req,res,next)=>{
   next();
 })
 
-app.use('/api/lists', listsRoutes)
+app.use('/api/notes', listsRoutes)
 
 
 module.exports = app

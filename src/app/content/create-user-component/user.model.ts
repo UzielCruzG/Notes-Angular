@@ -5,6 +5,5 @@ export interface User{
   username:string
   email: string
   password: string
-  image_path: string
   lists: [List]
 }

@@ -23,7 +23,7 @@ router.post('/createUser', (req, res, next) => {
   })
 })
 
-router.post('/login', (req, res, next) =>{
+router.post('', (req, res, next) =>{
   const user = {
     username: req.body.username,
     password: req.body.password
@@ -31,21 +31,24 @@ router.post('/login', (req, res, next) =>{
 
   User.find(user).then(userResponse => {
     if (userResponse.length > 0) {
-      res.status(200).json(true)
+      res.status(200).json({
+        user: userResponse,
+        result: true
+      })
     }
     else {
       res.status(404).json({
-        message: "User not found"
+        message: "User not found",
+        result: false
       })
     }
   })
 })
 
-router.put('/editUser/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
   const user = {
     username: req.body.username,
-    password: req.body.password,
-    image_path: req.body.image_path
+    password: req.body.password
   }
 
   User.updateOne({_id: req.params.id}, user).then(result => {
@@ -53,7 +56,7 @@ router.put('/editUser/:id', (req, res, next) => {
   })
 })
 
-router.delete('/deleteAccount/:id', (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
 
   User.findById((req.params.id)).then((userToBeDeleted) => {
 
@@ -75,15 +78,20 @@ router.post('/createList/:id', (req,res,next) => {
   })
 
   User.updateOne({_id: req.params.id}, {$push:{lists: list}}).then(result => {
+  })
+
+  User.findById((req.params.id)).then(userInfo => {
+
+
     res.status(201).json({
-      message: 'List added!'
+      message: "List Added!",
+      listId: userInfo.lists[userInfo.lists.length - 1]._id
     })
   })
 
 })
 
-
-router.get('/:id', (req,res,next)=>{
+router.get('/lists/:id', (req,res,next)=>{
 
   User.findById((req.params.id)).then(userInfo => {
     res.status(200).json({
@@ -109,7 +117,7 @@ router.delete('/:id/:idList', (req, res, next) => {
 
   User.updateOne({_id: req.params.id}, {'$pull': {'lists': {_id: req.params.idList}}})
   .then(listToBeDeleted => {
-    res.status(201).json({
+    res.status(200).json({
       message: 'List deleted!'
     })
   })
@@ -119,7 +127,7 @@ router.delete('/:id/:idList', (req, res, next) => {
 //#endregion
 
 //#region Activities
-router.post('/:id/:idList', (req, res, next) => {
+router.post('/createActivity/:id/:idList', (req, res, next) => {
 
   const activity = {
     name: req.body.name,
@@ -136,13 +144,16 @@ router.post('/:id/:idList', (req, res, next) => {
       arrayFilters:[
         {"list._id": req.params.idList}
       ]
-    })
-    .then(result => {
-    res.status(201).json({
-      message: 'Activity added!'
-    })
+    }).then(result => {
 
-  })
+      User.findById((req.params.id)).then(userInfo => {
+        listActivities = userInfo.lists.find(p => p.id == req.params.idList).activities //To test
+        res.status(201).json({
+          message: "Activity Added!",
+          activityId: listActivities[listActivities.length - 1]._id
+        })
+      })
+    })
 })
 
 router.put('/:id/:idList/:idActivity', (req, res, next) => {
