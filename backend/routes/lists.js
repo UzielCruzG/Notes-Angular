@@ -68,77 +68,47 @@ router.delete('/deleteAccount/:id', (req, res, next) => {
 //#endregion
 
 //#region Lists
-router.post('', (req,res,next) => {
+router.post('/createList/:id', (req,res,next) => {
   const list = new List({
     title: req.body.title,
     activities: []
   })
 
-  list.save().then(createdList => {
+  User.updateOne({_id: req.params.id}, {$push:{lists: list}}).then(result => {
     res.status(201).json({
-      message: 'List added successfully',
-      listId: createdList._id
+      message: 'List added!'
     })
   })
+
 })
 
 
-router.get('', (req,res,next)=>{
+router.get('/:id', (req,res,next)=>{
 
-  List.find().then(documents => {
-
+  User.findById((req.params.id)).then(userInfo => {
     res.status(200).json({
-
-      message: 'Listas expuestas con exito',
-      lists: documents
+      message: "User found",
+      lists: userInfo.lists
     })
-
   })
 
 })
 
-router.get('/:id', (req,res,next) => {
-
-  List.findById(req.params.id).then( list => {
-
-    if (list) {
-      res.status(200).json(list)
-    } else {
-      res.status(404).json({
-        message: "List not found"
-      })
-    }
-
-  })
-
-})
-
-router.put('/:id', (req, res, next) => {
-  const list = new List({
-    _id: req.body.id,
+router.put('/updateList/:id', (req, res, next) => {
+  const list = {
     title: req.body.title
-  })
+  }
 
-  List.updateOne({_id: req.params.id}, list).then(result => {
+  User.updateOne({'lists._id': req.params.id}, {'$set': {'lists.$.title': list.title}})
+  .then(listUpdated => {
     res.status(200).json({message: "List updated!"})
   })
 })
 
-router.post('/:id', (req,res,next) => {
-  List.findById((req.params.id)).then((list) =>{
-    res.status(200).json({
-      message: 'List found!',
-      list: list
-    })
-  })
-})
+router.delete('/:id/:idList', (req, res, next) => {
 
-router.delete('/:id', (req, res, next) => {
-
-  List.findById((req.params.id)).then((listToBeDeleted) => {
-
-    listToBeDeleted.delete()
-
+  User.updateOne({_id: req.params.id}, {'$pull': {'lists': {_id: req.params.idList}}})
+  .then(listToBeDeleted => {
     res.status(201).json({
       message: 'List deleted!'
     })
@@ -149,73 +119,84 @@ router.delete('/:id', (req, res, next) => {
 //#endregion
 
 //#region Activities
-router.put('/addActivity/:id', (req, res, next) => {
+router.post('/:id/:idList', (req, res, next) => {
 
-  const activity = {name: req.body.name, date: req.body.date}
+  const activity = {
+    name: req.body.name,
+    date: req.body.date
+  }
 
-  List.updateOne({_id: req.params.id}, {$push:{activities: activity}}).then(result => {
-  })
-
-  List.findById((req.params.id)).then(list => {
-
-    const activities = list['activities']
-
-    activityFiltered = activities[activities.length - 1]
-
+  User.updateOne({_id: req.params.id},
+    {$push:
+      {
+        "lists.$[list].activities": activity
+      }
+    },
+    {
+      arrayFilters:[
+        {"list._id": req.params.idList}
+      ]
+    })
+    .then(result => {
     res.status(201).json({
-      message: "Activity added!",
-      activityId: activityFiltered._id
+      message: 'Activity added!'
     })
-
 
   })
 })
 
-router.put('/editActivity/:id', (req, res, next) => {
+router.put('/:id/:idList/:idActivity', (req, res, next) => {
 
-  const activity = {id: req.body._id ,name: req.body.name, date: req.body.date}
+  const activity = {
+    name: req.body.name,
+    date: req.body.date
+  }
 
-
-  List.findById((req.params.id)).then(list => {
-
-    const updatedActivities = list['activities']
-    const oldActivityIndex = updatedActivities.findIndex(p => p.id === activity.id)
-    updatedActivities[oldActivityIndex] = {id: req.body._id ,name: req.body.name, date: req.body.date}
-
-    const listToUpdate = new List({
-      _id: list._id,
-      title: list.title,
-      activities: updatedActivities
+  User.updateOne({_id: req.params.id},
+    {$set:
+      {
+        "lists.$[list].activities.$[act].name": activity.name,
+        "lists.$[list].activities.$[act].date": activity.date
+      }
+    },
+    {
+      arrayFilters:[
+        {"list._id": req.params.idList},
+        {"act._id": req.params.idActivity}
+      ]
+    })
+    .then(result => {
+    res.status(201).json({
+      message: 'Activity modified!',
+      response: result
     })
 
-    List.updateOne({_id: req.params.id}, listToUpdate).then(result => {
-      res.status(200).json({message: "Activity updated!"})
-    })
   })
+
 })
 
-router.put('/deleteActivity/:id', (req, res, next) => {
+router.delete('/:id/:idList/:idActivity', (req, res, next) => {
 
-  const activity = {id: req.body._id ,name: req.body.name, date: req.body.date}
-
-
-  List.findById((req.params.id)).then(list => {
-
-    const activities = list['activities']
-    const updatedActivities = activities.filter(p => p.id !== activity.id)
-    console.log(updatedActivities)
-
-    const listToUpdate = new List({
-      _id: list._id,
-      title: list.title,
-      activities: updatedActivities
+  User.updateOne(
+    {_id: req.params.id},
+    {$pull:
+      {
+        "lists.$[list].activities": {_id: req.params.idActivity}
+      }
+    },
+    {
+      arrayFilters:
+      [
+        {"list._id": req.params.idList}
+      ]
     })
-
-    List.updateOne({_id: req.params.id}, listToUpdate).then(result => {
-      res.status(200).json({message: "Activity deleted!"})
+  .then(listToBeDeleted => {
+    res.status(201).json({
+      message: 'Activity deleted!'
     })
   })
 })
 //#endregion
 
 module.exports = router
+
