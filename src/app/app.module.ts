@@ -30,6 +30,7 @@ import { AddActivityCard } from './content/add-activity-card/add-activity-card.c
 import { AddListCard } from "./content/add-list-card/add-list-card.component";
 import { LoginComponent } from './login/login.component';
 import { CreateUserComponent } from './content/create-user-component/create-user.component';
+import { DecorationComponent } from './content/decoration-component/decoration.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CreateUserComponent } from './content/create-user-component/create-user
     AddActivityCard,
     AddListCard,
     LoginComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    DecorationComponent
   ],
   imports: [
     BrowserModule,

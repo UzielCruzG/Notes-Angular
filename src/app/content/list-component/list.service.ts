@@ -11,7 +11,7 @@ export class ListService {
   private lists: List[] = [];
   private listSub = new Subject<List[]>();
   constructor(private http: HttpClient, private userService: UserService) {}
-  private userId = this.userService.user.id
+  private userId = '6386cb0161b7a38051501d7d'
 
   getListsUpdateListener() {
     return this.listSub.asObservable();

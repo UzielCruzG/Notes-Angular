@@ -5,6 +5,11 @@ mat-card{
   justify-content: center;
 }
 
+decoration-component{
+  width: 100%;
+  height: 100%;
+}
+
 .content-mat-card {
   border-width: 1px;
   border-style: solid;
