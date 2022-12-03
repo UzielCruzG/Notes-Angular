@@ -11,15 +11,14 @@ export class ListService {
   private lists: List[] = [];
   private listSub = new Subject<List[]>();
   constructor(private http: HttpClient, private userService: UserService) {}
-  private userId = '6386cb0161b7a38051501d7d'
-
+  private userId = this.userService.idUser
   getListsUpdateListener() {
     return this.listSub.asObservable();
   }
 
   getLists() {
     this.http
-      .get<{ message: string; lists: any }>('http://localhost:3000/api/notes/lists/' + this.userService.user.id)
+      .get<{ message: string; lists: any }>('http://localhost:3000/api/notes/lists/' + this.userId)
       .pipe(
         map((listData) => {
           return listData.lists.map((list) => {
@@ -49,7 +48,7 @@ export class ListService {
 
   addList(title: string) {
     const list: List = { id: null, title: title, activities: null };
-    this.http.post<{ message: string, listId: string }>('http://localhost:3000/api/notes/'+ this.userId , list)
+    this.http.post<{ message: string, listId: string }>('http://localhost:3000/api/notes/createList/'+ this.userId , list)
     .subscribe((responseData) => {
       const id = responseData.listId;
       list.id = id;
@@ -86,7 +85,7 @@ export class ListService {
     const activity: Activity = { _id: null, name, date };
     console.log(activity)
     this.http
-      .put<{ message: string; activityId: string }>(
+      .post<{ message: string; activityId: string }>(
         'http://localhost:3000/api/notes/createActivity/' + this.userId + "/" + idList,
         activity
       )

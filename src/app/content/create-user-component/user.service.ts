@@ -9,8 +9,9 @@ import { List } from '../list-component/list.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService{
-  public user: User
+  private user: User
   private userSub = new Subject<User>()
+  public idUser
   constructor(private http: HttpClient, private router:Router) {}
 
   getUsersUpdateListener() {
@@ -56,13 +57,13 @@ export class UserService{
       password: password
     }
 
-    this.http.post<{message: string, userLogged: User, result: boolean}>('http://localhost:3000/api/notes', user)
-      .subscribe((response) => {
+    this.http.post<{message: string, user: User, result: boolean}>('http://localhost:3000/api/notes', user)
+      .subscribe(response => {
         if (response.result) {
-          this.user = response.userLogged
-          console.log(this.user)
+          this.user = response.user[0]
+          this.idUser = this.user._id
           this.userSub.next(this.user)
-          this.router.navigate(['/']) //To test
+          this.router.navigate(['/main'])
         }else{
 
         }
