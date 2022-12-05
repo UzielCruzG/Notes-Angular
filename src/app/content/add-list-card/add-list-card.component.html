@@ -1,15 +1,15 @@
 <h1 mat-dialog-title>Nueva lista</h1>
-<Form [formGroup]="form">
+<form [formGroup]="form">
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nombre</mat-label>
     <!--<input class="input" matInput type="text" cdkFocusInitial name="title" [ngModel]="list?.title" required #title="ngModel">-->
-    <input class="input" matInput type="text" cdkFocusInitial name="title">
+    <input class="input" matInput type="text" cdkFocusInitial formControlName="title">
     <mat-error *ngIf="form.get('title').invalid">Por favor ingrese un nombre</mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="diagBtn">
-  <button mat-button (click)="onAddList(title.value, title)">Guardar</button>
+  <button mat-button (click)="onAddList(form.get('title').value)">Guardar</button>
   <button mat-button mat-dialog-close>Cancelar</button>
 </div>
-</Form>
+</form>

@@ -22,25 +22,21 @@ export class AddActivityCard implements OnInit{
   constructor(@Inject(MAT_DIALOG_DATA) public data: {idList: string, title:string, idActivity: string, name:string, date:Date}, public listsService:ListService, public dialog:MatDialogRef<AddActivityCard>, public route: ActivatedRoute){}
 
   ngOnInit(){
-    if (this.data.idActivity) {
-      this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
-    }
     this.form = new FormGroup({
       "titleActivity": new FormControl(null, {validators: [Validators.required]}),
-      'date': new FormControl(null, {validators: [Validators.required],
-      asyncValidators: [mimeType]})
+      'date': new FormControl(null, {validators: [Validators.required]})
     })
-  }
-    /*
-  ngOnInit(){
 
-    console.log(this.data)
-  }*/
-
-  onAddActivity(name: string, date: string, titleForm, dateForm: NgModel){
-    if (titleForm.invalid || dateForm.invalid) {
-      return
+    if (this.data.idActivity) {
+      this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
+      this.form.setValue({
+        titleActivity: this.data.name,
+        date: this.data.date
+      })
     }
+  }
+
+  onAddActivity(name: string, date: string){
     console.log(this.data.idList)
     const dateFormatted = new Date(date)
     this.listsService.addActivity(this.data.idList, this.data.title, name, dateFormatted)
@@ -52,12 +48,12 @@ export class AddActivityCard implements OnInit{
     this.dialog.close()
   }
 
-  onSave(name: string, date: string, titleForm, dateForm: NgModel){
+  onSave(name: string, date: string){
     const dateFormatted = new Date(date)
     if (this.data.idActivity != undefined ) {
       this.onUpdateActivity(name, dateFormatted)
     }else{
-      this.onAddActivity(name, date, titleForm, dateForm)
+      this.onAddActivity(name, date)
     }
   }
 }

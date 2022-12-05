@@ -25,10 +25,7 @@ export class AddListCard{
     })
   }
 
-  onAddList(title:string, form:NgModel){
-    if (form.invalid) {
-      return
-    }
+  onAddList(title:string){
     this.listsService.addList(title)
     this.dialog.close()
   }
