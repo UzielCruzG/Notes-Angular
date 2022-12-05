@@ -20,19 +20,22 @@
       </div>
       <hr/>
       <mat-nav-list class="nav-list">
-        <div class="list-item">
+        <!--<div class="list-item">
           <mat-list-item> Usuario </mat-list-item>
         </div>
-        <hr />
+        <hr />-->
         <div class="list-item">
-          <mat-list-item> Mis listas </mat-list-item>
+          <mat-list-item (click)="snav.toggle()"> Mis listas </mat-list-item>
         </div>
+        <!--
         <div class="list-item">
           <mat-list-item> Configuracion </mat-list-item>
         </div>
-        <div class="list-item">
+      -->
+        <!--<div class="list-item">
           <mat-list-item>
-            Modo Oscuro {{checked}}
+            Modo Oscuro
+            {{checked}}
             <mat-slide-toggle
               class="dark-mode"
               color="primary"
@@ -40,7 +43,7 @@
               onclick="document.documentElement.classList.toggle('dark-mode')"
             ></mat-slide-toggle>
           </mat-list-item>
-        </div>
+        </div>-->
         <div class="button-container">
           <button mat-raised-button routerLink="/" class="btnCerrarSesion" (click)="onSessionClosed()">
             Cerrar Sesión
