@@ -83,10 +83,10 @@ router.post('/createList/:id', (req,res,next) => {
 
   User.findById((req.params.id)).then(userInfo => {
 
-
+    lists = userInfo.lists
     res.status(201).json({
       message: "List Added!",
-      listId: userInfo.lists[userInfo.lists.length - 1]._id
+      listId: lists[lists.length - 1]._id
     })
   })
 
