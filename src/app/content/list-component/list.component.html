@@ -5,15 +5,13 @@
 </div>
 <mat-accordion multi="true" class="list-component" *ngFor="let list of lists">
 <mat-expansion-panel class="panel">
-  <mat-expansion-panel-header>
-     <div class="prueba">
+  <mat-expansion-panel-header class="encabezado">
+    <div class="title">
       {{list.title}}
-      <mat-panel-description>
-        <button mat-raised-button class="btnDeleteList" (click)="openDialogDeleteList(list.id)">
-          <mat-icon type="button" class="btnDL">clear</mat-icon>
-        </button>
-      </mat-panel-description>
     </div>
+    <button mat-raised-button class="btnDeleteList" (click)="openDialogDeleteList(list.id)">
+      <mat-icon type="button" class="btnDL">delete</mat-icon>
+    </button>
   </mat-expansion-panel-header>
   <div class="row" *ngFor="let activity of list.activities">
     <div class="row-content">

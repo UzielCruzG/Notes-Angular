@@ -29,6 +29,11 @@ export class SidenavComponent{
         boton.classList.toggle(".btnCerrarSesion");
       }
     }
+
+    darkMode() {
+      var cuerpoweb = document.body;
+      cuerpoweb.classList.toggle("dark-mode");
+  }
 }
 
 

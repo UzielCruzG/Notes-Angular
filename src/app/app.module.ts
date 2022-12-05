@@ -16,7 +16,8 @@ import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
+//import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,7 +67,8 @@ import { DecorationComponent } from './content/decoration-component/decoration.c
     HttpClientModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    FormsModule
+    ReactiveFormsModule
+    //FormsModule
   ],
   providers: [
     /*{ provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}*/
