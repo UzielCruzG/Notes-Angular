@@ -22,37 +22,18 @@ export class AddActivityCard implements OnInit{
   constructor(@Inject(MAT_DIALOG_DATA) public data: {idList: string, title:string, idActivity: string, name:string, date:Date}, public listsService:ListService, public dialog:MatDialogRef<AddActivityCard>, public route: ActivatedRoute){}
 
   ngOnInit(){
+    if (this.data.idActivity) {
+      this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
+    }
     this.form = new FormGroup({
       "titleActivity": new FormControl(null, {validators: [Validators.required]}),
       'date': new FormControl(null, {validators: [Validators.required],
       asyncValidators: [mimeType]})
     })
-
-    this.route.paramMap.subscribe((paramMap: ParamMap)=>{
-      if (paramMap.has('name')) {
-        this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
-        .subscribe(Activity => {
-          this.activity = {
-            _id: Activity._id,
-            name: Activity.name,
-            date: Activity.date,
-          }
-          this.form.setValue({
-            name: this.activity.name,
-            date: this.activity.date
-          })
-        })
-        //this.post = this.postsService.getPost(this.postId)
-      }else{
-
-      }
-    })
   }
     /*
   ngOnInit(){
-    if (this.data.idActivity) {
-      this.activity = {_id: this.data.idActivity, name: this.data.name, date: this.data.date}
-    }
+
     console.log(this.data)
   }*/
 
