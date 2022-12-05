@@ -1,19 +1,23 @@
 <h1 mat-dialog-title>Nueva actividad</h1>
+<Form [formGroup]="form">
 <div mat-dialog-content>
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input class="input" matInput type="text" cdkFocusInitial name="titleActivity" [ngModel]="activity?.name" required #titleActivity="ngModel">
-    <mat-error *ngIf="titleActivity.invalid">Por favor ingrese un nombre</mat-error>
+    <!--<input class="input" matInput type="text" cdkFocusInitial name="titleActivity" [ngModel]="activity?.name" required #titleActivity="ngModel">-->
+    <input class="input" matInput type="text" cdkFocusInitial name="titleActivity">
+    <mat-error *ngIf="form.get('titleActivity').invalid">Por favor ingrese un nombre</mat-error>
   </mat-form-field>
   <mat-form-field >
-    <input class="input" matInput [matDatepicker]="picker" name="date" [ngModel]="activity?.date" placeholder="DD/MM/YYY" required #date="ngModel">
+    <!--<input class="input" matInput [matDatepicker]="picker" name="date" [ngModel]="activity?.date" placeholder="DD/MM/YYY" required #date="ngModel">-->
+    <input class="input" matInput [matDatepicker]="picker" name="date"  placeholder="DD/MM/YYY">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker disabled="false"></mat-datepicker>
-    <mat-error *ngIf="date.invalid">Por favor ingrese una fecha</mat-error>
+    <mat-error *ngIf="form.get('date').invalid">Por favor ingrese una fecha</mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onSave(titleActivity.value, date.value, titleActivity, date)">Guardar</button>
   <button mat-button mat-dialog-close>Cancelar</button>
 </div>
+</Form>
 

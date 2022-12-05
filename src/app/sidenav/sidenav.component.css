@@ -1,27 +1,23 @@
+/*
 .sidenav-container {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  /*background: rgb(31, 31, 31);*/
   z-index: 0;
-  /*background-color: #2a2a2a;*/
+
   background-color: #1c1c1c;
 }
 
 
 .toolbar {
   position: fixed;
-  /*Invertir*/
   background-color: #212121;
   color: white;
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  /*background-color: rgb(42, 52, 65);*/
- /* color: white;*/
 }
 
- /*Invertir*/
+
 .icons{
   color: white;
 }
@@ -67,25 +63,17 @@
 .list-item{
   width: 100%;
   display: inline-block;
-/*  background-color: rgb(62, 81, 105);*/
 }
 
-/*Invertir */
 .list-item mat-list-item{
   color: white;
 }
 
-.dark-mode{
-  margin-left: 1rem;
-
-}
 
 mat-sidenav {
   width: 18rem;
   z-index: 2;
-  /*Color a invertir*/
   background-color: #2a2a2a;
-  /*background-color: rgb(54, 67, 84);*/
 }
 
 mat-sidenav .list-item :hover{
@@ -94,7 +82,6 @@ background-color: #363636;
 
 mat-sidenav .text-container{
   margin-top: 1rem;
-  /*Invertir*/
   color: white;
 }
 
@@ -122,6 +109,11 @@ mat-sidenav h1{
 
 
 /*Modo Oscuro --- en proceso*/
+/*
+.dark-mode switch{
+  margin-left: 1rem;
+  background-color: #fffafa;
+}
 html .dark-mode{
   filter: invert(100%);
 }
@@ -135,3 +127,162 @@ mat-sidenav-content .button-top-container :hover {
   background-color: #fffafa;
   color: rgb(0, 0, 0);
   }
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+  /*Modo Claro--------------------------------------------------------------------------*/
+  .sidenav-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background-color: #f8f4f4;
+  }
+
+
+  .toolbar {
+    position: fixed;
+    background-color: #f8f4f4;
+    color: rgb(0, 0, 0);
+  }
+
+   /*Invertir*/
+  .icons{
+    color: rgb(0, 0, 0);
+  }
+
+  .btnCerrarSesion{
+    text-align:center;
+    margin-top: 1rem;
+    background-color: rgb(88, 88, 247);
+    font-size: 15px;
+    color: white;
+  }
+
+  .button-container  :hover{
+    background-color: tomato;
+  }
+
+  .button-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .button-top-container{
+    display: flex;
+    justify-content: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+
+  .img-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+
+  .img-container img{
+    width: 33%;
+    height: auto;
+  }
+
+  .list-item{
+    width: 100%;
+    display: inline-block;
+  /*  background-color: rgb(62, 81, 105);*/
+  }
+
+  /*Invertir */
+  .list-item mat-list-item{
+    color: rgb(0, 0, 0);
+  }
+
+
+  mat-sidenav {
+    width: 18rem;
+    z-index: 2;
+    /*Color a invertir*/
+    background-color: #f8f4f4;
+    /*background-color: rgb(54, 67, 84);*/
+  }
+
+  mat-sidenav .list-item :hover{
+  background-color: #f0ecec;
+  }
+
+  mat-sidenav .text-container{
+    margin-top: 1rem;
+    /*Invertir*/
+    color: rgb(0, 0, 0);
+  }
+
+  mat-sidenav h1{
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+  }
+
+  .icon{
+    margin-left: 1rem;
+  }
+
+  .content-container{
+    display: flex;
+  }
+
+  .list-component-container{
+    flex: 2;
+  }
+
+  .card-decoration-container{
+    flex: 1;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*Modo Oscuro --- en proceso*/
+
+  .dark-mode switch{
+    margin-left: 1rem;
+    background-color: #fffafa;
+  }
+  html .dark-mode{
+    filter: invert(100%);
+  }
+
+  .button-top-container .add-button {
+  background-color: #2a2a2a;
+  color: white;
+  }
+
+  mat-sidenav-content .button-top-container :hover {
+    background-color: #fffafa;
+    color: rgb(0, 0, 0);
+    }

@@ -31,9 +31,16 @@ export class SidenavComponent{
       }
     }
 
+<<<<<<< HEAD
     onSessionClosed(){
       this.userService.idUser = ""
     }
+=======
+    darkMode() {
+      var cuerpoweb = document.body;
+      cuerpoweb.classList.toggle("dark-mode");
+  }
+>>>>>>> 7e4ef7f1eea9626d990b5e2f57a4de43dbd83546
 }
 
 

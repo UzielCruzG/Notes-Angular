@@ -1,3 +1,4 @@
+/*
 :host{
   display: block;
   margin: 1rem;
@@ -16,6 +17,7 @@
 }
 
 /*Invertir*/
+/*
 .buttons-container button{
   background-color: transparent;
   color: #ffffff;
@@ -48,12 +50,12 @@
 
 .list-component{
   margin: 1rem;
-  /*Pruebas de boton de borrado*/
+  /*Pruebas de boton de borrado*/ /*
   display: grid;
 
 }
 
-/*Invertir*/
+/*Invertir*/ /*
 .panel{
   background-color: #2a2a2a;
   color: white;
@@ -84,7 +86,7 @@
 }
 
 .btnDL{
-  color: red;
+  color: rgb(255, 255, 255);
   border: 0;
   outline:none;
 }
@@ -126,4 +128,160 @@
 
 .mat-spinner::ng-deep{
   stroke: aqua;
+}
+
+.encabezado{
+  display: flex;
+}
+
+.btnDeleteList{
+  margin-left: auto;
+}
+
+*/
+
+
+/*Modo Claro -------------------------------------------------------------*/
+:host{
+  display: block;
+  margin: 1rem;
+}
+
+.row-content, .buttons-container{
+  display: inline-block;
+}
+
+.row-content p {
+  margin-top: 10px;
+}
+
+.buttons-container{
+  float: right;
+}
+
+/*Invertir*/
+.buttons-container button{
+  background-color: #575757;
+  color: #ffffff;
+}
+.buttons-container .btnEdit{
+  display: none;
+  visibility: hidden;
+}
+.panel :hover .btnEdit{
+    display: inline-block;
+    visibility: visible;
+}
+
+.buttons-container .btnDel{
+  display: none;
+  visibility: hidden;
+
+}
+
+.panel :hover .btnDel{
+    display: inline-block;
+    visibility: visible;
+
+}
+
+.panel .buttons-container :hover{
+  background-color: #f0ecec;
+  color: #2a2a2a;
+}
+
+.list-component{
+  margin: 1rem;
+  /*Pruebas de boton de borrado*/
+  display: grid;
+
+}
+
+/*Invertir*/
+.panel{
+  background-color: #f8f4f4;
+  color: rgb(0, 0, 0);
+}
+
+.list-component :hover{
+  background-color: #f0ecec;
+}
+
+.list-component mat-action-row :hover{
+  background-color: #ffffff;
+  color: #2a2a2a;
+}
+
+.prueba{
+  display: flex;
+  position: relative;
+  top: 50%;
+}
+
+.prueba .space-icon{
+  position: relative;
+  margin-left: auto;
+  max-width: 10%;
+  border: 0;
+  outline:none;
+
+}
+
+.btnDL{
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  border: 0;
+  outline:none;
+}
+.btnDL:hover{
+  background-color: darkred;
+  color: #2a2a2a;
+  border: 0;
+  outline:none;
+}
+.list-component:hover  .btnDeleteList{
+  display: block;
+  visibility: visible;
+  background-color: #969696;
+  border-radius: 50px;
+  border-color: transparent;
+  border: 0;
+  outline:none;
+}
+.list-component:hover  .btnDeleteList:hover{
+  background-color: darkred;
+}
+
+
+.btnDeleteList{
+  display: none;
+  visibility: hidden;
+}
+
+.spinner{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.div-spinner{
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-spinner{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  stroke: aqua;
+}
+
+
+.encabezado{
+  display: flex;
+}
+
+.btnDeleteList{
+  margin-left: auto;
 }
