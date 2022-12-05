@@ -20,7 +20,7 @@ export class AddListCard{
 
   ngOnInit(){
     this.form = new FormGroup({
-      'title': new FormControl(null, {validators: [Validators.required],
+      'title': new FormControl(null, {validators: [Validators.required, Validators.minLength(3)],
       asyncValidators: [mimeType]})
     })
   }

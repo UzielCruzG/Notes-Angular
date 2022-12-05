@@ -1,4 +1,4 @@
-/*
+
 .sidenav-container {
   position: fixed;
   top: 0;
@@ -109,7 +109,7 @@ mat-sidenav h1{
 
 
 /*Modo Oscuro --- en proceso*/
-/*
+
 .dark-mode switch{
   margin-left: 1rem;
   background-color: #fffafa;
@@ -130,7 +130,6 @@ mat-sidenav-content .button-top-container :hover {
 
 
 
-*/
 
 
 
@@ -142,7 +141,8 @@ mat-sidenav-content .button-top-container :hover {
 
 
 
-  /*Modo Claro--------------------------------------------------------------------------*/
+
+  /*Modo Claro--------------------------------------------------------------------------*/ /*
   .sidenav-container {
     position: fixed;
     top: 0;
@@ -159,8 +159,8 @@ mat-sidenav-content .button-top-container :hover {
     background-color: #f8f4f4;
     color: rgb(0, 0, 0);
   }
-
-   /*Invertir*/
+*/
+   /*Invertir*/ /*
   .icons{
     color: rgb(0, 0, 0);
   }
@@ -205,11 +205,11 @@ mat-sidenav-content .button-top-container :hover {
 
   .list-item{
     width: 100%;
-    display: inline-block;
-  /*  background-color: rgb(62, 81, 105);*/
+    display: inline-block; */
+  /*  background-color: rgb(62, 81, 105);*//*
   }
 
-  /*Invertir */
+  /*Invertir *//*
   .list-item mat-list-item{
     color: rgb(0, 0, 0);
   }
@@ -218,9 +218,9 @@ mat-sidenav-content .button-top-container :hover {
   mat-sidenav {
     width: 18rem;
     z-index: 2;
-    /*Color a invertir*/
+    /*Color a invertir*//*
     background-color: #f8f4f4;
-    /*background-color: rgb(54, 67, 84);*/
+    /*background-color: rgb(54, 67, 84);*/ /*
   }
 
   mat-sidenav .list-item :hover{
@@ -229,7 +229,7 @@ mat-sidenav-content .button-top-container :hover {
 
   mat-sidenav .text-container{
     margin-top: 1rem;
-    /*Invertir*/
+    /*Invertir*/ /*
     color: rgb(0, 0, 0);
   }
 
@@ -254,6 +254,7 @@ mat-sidenav-content .button-top-container :hover {
   .card-decoration-container{
     flex: 1;
   }
+*/
 
 
 
@@ -266,8 +267,7 @@ mat-sidenav-content .button-top-container :hover {
 
 
 
-
-  /*Modo Oscuro --- en proceso*/
+  /*Modo Oscuro --- en proceso*/ /*
 
   .dark-mode switch{
     margin-left: 1rem;
@@ -286,3 +286,4 @@ mat-sidenav-content .button-top-container :hover {
     background-color: #fffafa;
     color: rgb(0, 0, 0);
     }
+    */

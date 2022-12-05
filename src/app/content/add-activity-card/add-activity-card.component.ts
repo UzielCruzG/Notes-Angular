@@ -23,7 +23,7 @@ export class AddActivityCard implements OnInit{
 
   ngOnInit(){
     this.form = new FormGroup({
-      "titleActivity": new FormControl(null, {validators: [Validators.required]}),
+      "titleActivity": new FormControl(null, {validators: [Validators.required ,Validators.minLength(3)]}),
       'date': new FormControl(null, {validators: [Validators.required]})
     })
 
