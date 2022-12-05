@@ -26,8 +26,11 @@ export class AddListCard{
   }
 
   onAddList(title:string){
-    this.listsService.addList(title)
-    this.dialog.close()
+    if (title != null && title != '') {
+      this.listsService.addList(title)
+      this.dialog.close()
+    }
+
   }
 
 }
