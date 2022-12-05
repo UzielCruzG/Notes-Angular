@@ -1,4 +1,4 @@
-/*
+
 :host{
   display: block;
   margin: 1rem;
@@ -17,7 +17,7 @@
 }
 
 /*Invertir*/
-/*
+
 .buttons-container button{
   background-color: transparent;
   color: #ffffff;
@@ -50,12 +50,12 @@
 
 .list-component{
   margin: 1rem;
-  /*Pruebas de boton de borrado*/ /*
+  /*Pruebas de boton de borrado*/
   display: grid;
 
 }
 
-/*Invertir*/ /*
+/*Invertir*/
 .panel{
   background-color: #2a2a2a;
   color: white;
@@ -138,10 +138,10 @@
   margin-left: auto;
 }
 
-*/
 
 
-/*Modo Claro -------------------------------------------------------------*/
+
+/*Modo Claro -------------------------------------------------------------*//*
 :host{
   display: block;
   margin: 1rem;
@@ -159,7 +159,7 @@
   float: right;
 }
 
-/*Invertir*/
+/*Invertir*/ /*
 .buttons-container button{
   background-color: #575757;
   color: #ffffff;
@@ -192,12 +192,12 @@
 
 .list-component{
   margin: 1rem;
-  /*Pruebas de boton de borrado*/
+  /*Pruebas de boton de borrado*/ /*
   display: grid;
 
 }
 
-/*Invertir*/
+/*Invertir*/ /*
 .panel{
   background-color: #f8f4f4;
   color: rgb(0, 0, 0);
@@ -285,3 +285,4 @@
 .btnDeleteList{
   margin-left: auto;
 }
+*/
