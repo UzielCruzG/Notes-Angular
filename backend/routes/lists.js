@@ -220,14 +220,14 @@ router.post('/sendEmail', (req, res, next) => {
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'correo.notes.inc@gmail.com',
-        pass: 'pvfxorrfshbnwzhk'
+        user: '',
+        pass: ''
       }
     });
 
     var mailOptions = {
-      from: 'correo.notes.inc@gmail.com',
-      to: 'LRS19110493@purisima.tecnm.mx',
+      from: '',
+      to: '',
       subject: 'This is a test',
       text: 'asdfasdfasdfasdf'
     };
