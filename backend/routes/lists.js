@@ -3,6 +3,7 @@ const router = express.Router()
 const List = require('../models/list')
 const Activity = require('../models/activity')
 const User = require('../models/user')
+const nodemailer = require('nodemailer');
 
 //#region Users
 
@@ -202,12 +203,50 @@ router.delete('/:id/:idList/:idActivity', (req, res, next) => {
       ]
     })
   .then(listToBeDeleted => {
-    res.status(201).json({
+    res.status(200).json({
       message: 'Activity deleted!'
     })
   })
 })
 //#endregion
 
+//#region Email
+router.post('/sendEmail', (req, res, next) => {
+
+  User.findById(req.body.id).then(user => {
+    const email = user.email
+    console.log(email)
+
+    var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: '',
+        pass: ''
+      }
+    });
+
+    var mailOptions = {
+      from: '',
+      to: '',
+      subject: 'This is a test',
+      text: 'asdfasdfasdfasdf'
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.status(200).json({
+          message: 'Email sent!'
+        })
+      }
+    });
+  })
+
+})
+
+
+//#endregion
 module.exports = router
 

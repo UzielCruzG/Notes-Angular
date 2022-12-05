@@ -11,12 +11,13 @@ export class ListService {
   private lists: List[] = [];
   private listSub = new Subject<List[]>();
   constructor(private http: HttpClient, private userService: UserService) {}
-  private userId = this.userService.idUser
+  private userId
   getListsUpdateListener() {
     return this.listSub.asObservable();
   }
 
   getLists() {
+    this.userId = this.userService.idUser
     this.http
       .get<{ message: string; lists: any }>('http://localhost:3000/api/notes/lists/' + this.userId)
       .pipe(
@@ -106,10 +107,10 @@ export class ListService {
   }
 
   updateActivity(idList: string, idActivity: string, name: string, date: Date) {
-    const activity: Activity = { _id: idActivity, name, date };
+    const activity = { _id: idActivity, name, date };
     this.http
       .put<{ message: string }>(
-        'http://localhost:3000/api/lists/editActivity/' + idList,
+        'http://localhost:3000/api/notes/' + this.userId + "/" + idList + "/" + idActivity,
         activity
       )
       .subscribe((responseData) => {
@@ -128,10 +129,10 @@ export class ListService {
 
   deleteActivity(idList: string, idActivity: string, name: string, date: Date) {
     const activity: Activity = { _id: idActivity, name, date };
+
     this.http
-      .put<{ message: string }>(
-        'http://localhost:3000/api/lists/deleteActivity/' + idList,
-        activity
+      .delete<{ message: string }>(
+        'http://localhost:3000/api/notes/' + this.userId +"/"+ idList + "/" + idActivity
       )
       .subscribe((responseData) => {
         const updatedLists = [...this.lists];
@@ -144,7 +145,7 @@ export class ListService {
           p => p.id === idList
         )
         console.log(listIndex)
-        const updatedActivities = activitiesService.filter(p => p._id !== activity._id)
+        const updatedActivities = activitiesService.filter(p => p._id !== idActivity)
         console.log(this.lists[listIndex])
         console.log(updatedActivities)
 
@@ -152,5 +153,13 @@ export class ListService {
         console.log(this.lists)
         this.listSub.next([...this.lists]);
       });
+  }
+
+  sendEmail(){
+    const user = {
+      id: this.userId
+    }
+    this.http.post('http://localhost:3000/api/notes/sendEmail', user).subscribe()
+    console.log("entro a service")
   }
 }

@@ -14,23 +14,23 @@
             matInput
             type="text"
             cdkFocusInitial
-            name="username"
             required
+            #username
           />
         </mat-form-field>
         <mat-form-field>
           <mat-label>Correo</mat-label>
-          <input matInput type="text" name="email" required />
+          <input matInput type="text" required #email/>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Contraseña</mat-label>
-          <input matInput type="password" name="password" required />
+          <input matInput type="password" required #password/>
         </mat-form-field>
       </div>
     </div>
     <mat-dialog-actions class="buttons-container">
       <button class="cancel" mat-stroked-button type="button" routerLink="/">Cancelar</button>
-      <button class="createAccountButton" mat-raised-button type="button">
+      <button class="createAccountButton" mat-raised-button type="button" (click)="onCreateUser(username.value, email.value, password.value)">
         Crear cuenta
       </button>
     </mat-dialog-actions>

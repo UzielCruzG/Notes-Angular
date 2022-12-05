@@ -40,15 +40,8 @@ export class UserService{
       lists: null
     }
     this.http
-      .post<{ message: string; userId: string }>('http://localhost:3000/api/notes/createUser', user)
-      /*
-      .subscribe((responseData) => {
-        const id = responseData.userId;
-        user.id = id;
-        this.users.push(user);
-        this.userSub.next([...this.users]);
-      })
-      */
+      .post<{ message: string; userId: string }>('http://localhost:3000/api/notes/createUser', user).subscribe()
+      this.router.navigate(["/"])
   }
 
   login(username: string, password: string){
@@ -87,7 +80,7 @@ export class UserService{
   }
 
   deleteUser(id: string){
-    this.http.delete('http://localhost:3000/api/notes/' + id)
+    this.http.delete('http://localhost:3000/api/notes/' + id).subscribe()
     this.router.navigate(['/'])
   }
 
